@@ -210,14 +210,14 @@ export default function Chatbot() {
                                 <p className="text-xs text-green-200 font-medium">● Fast Fix Guaranteed</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-1">
-                            <a href="tel:+919240251266" title="Call us"
+                        <div className="flex items-center cursor-pointer">
+                            {/* <a href="tel:+919240251266" title="Call us"
                                 className="text-white hover:bg-white/20 rounded-full p-1.5 transition">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z" />
                                 </svg>
-                            </a>
-                            <button onClick={() => setIsOpen(false)} className="text-white hover:bg-white/20 rounded-full p-1.5 transition">✕</button>
+                            </a> */}
+                            <button onClick={() => setIsOpen(false)} className="text-white hover:bg-white/20 rounded-full p-1.5 transition cursor-pointer">✕</button>
                         </div>
                     </div>
 
@@ -228,10 +228,10 @@ export default function Chatbot() {
                                 <div className="text-4xl">{greeting.emoji}</div>
                                 <p className="font-bold text-gray-700 text-lg">{greeting.text}!</p>
                                 <p className="text-sm text-gray-500 px-4">I&apos;m your Pockit Engineers assistant. How can I help fix your tech today?</p>
-                                <div className="flex flex-wrap gap-2 justify-center mt-2">
+                                <div className="flex flex-wrap gap-2 justify-center mt-2 cursor-pointer">
                                     {initialChips.map((chip) => (
                                         <button key={chip} onClick={() => sendMessage(chip)}
-                                            className="text-xs px-3 py-1.5 bg-white border border-blue-200 text-blue-600 rounded-full hover:bg-blue-50 transition shadow-sm">
+                                            className=" cursor-pointer text-xs px-3 py-1.5 bg-white border border-blue-200 text-blue-600 rounded-full hover:bg-blue-50 transition shadow-sm">
                                             {chip}
                                         </button>
                                     ))}
@@ -352,7 +352,7 @@ export default function Chatbot() {
                     <span className="absolute -top-1 -right-1 w-4 h-4 bg-purple-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center z-10 shadow">1</span>
                 )}
                 <button onClick={() => { if (!isOpen) setHasOpened(true); setIsOpen(!isOpen); }}
-                    className={`relative w-14 h-14 rounded-full shadow-xl flex items-center justify-center transform transition-all duration-300 ${isOpen ? "bg-gray-600 hover:bg-gray-700" : "bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-2xl hover:scale-110"}`}>
+                    className={` cursor-pointer relative w-14 h-14 rounded-full shadow-xl flex items-center justify-center transform transition-all duration-300 ${isOpen ? "bg-gray-600 hover:bg-gray-700" : "bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-2xl hover:scale-110 "}`}>
                     {isOpen
                         ? <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                         : <RobotIcon size={30} className="text-white" />
