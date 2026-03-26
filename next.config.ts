@@ -1,8 +1,4 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  reactCompiler: true,
-
+const nextConfig = {
   async headers() {
     return [
       {
@@ -10,7 +6,13 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: "default-src *; frame-src *; frame-ancestors *; img-src * data: blob:; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline';",
+            value: `
+              default-src 'self';
+              script-src 'self' 'unsafe-inline' 'unsafe-eval';
+              style-src 'self' 'unsafe-inline';
+              img-src 'self' data: blob:;
+              frame-ancestors *;
+            `.replace(/\n/g, ""),
           },
         ],
       },
