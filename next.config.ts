@@ -8,16 +8,14 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: `
               default-src 'self';
-              script-src 'self' 'unsafe-inline' 'unsafe-eval';
-              style-src 'self' 'unsafe-inline';
-              img-src 'self' data: blob:;
-              frame-ancestors *;
-            `.replace(/\n/g, ""),
-          },
-        ],
-      },
+              frame-ancestors 'self' http://localhost:3000 https://your-main-site.com;
+              frame-src 'self' http://localhost:3001/;
+            `.replace(/\n/g, "")
+          }
+        ]
+      }
     ];
-  },
+  }
 };
 
 export default nextConfig;
